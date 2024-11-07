@@ -15,13 +15,13 @@ The API should provide the following features:
 ### Course Properties
 Before we dive into the API routes, let's understand the structure (properties) of a course:
 
-- id: Unique identifier for each course
-- name: Name of the course
-- category: Category of the course
-- description: Description of the course
-- active: Defines whether the course is active or not
-- created_at: The date when the course was created
-- updated_at: The date when the course was last updated (this should change whenever a course is updated)
+- `id`: Unique identifier for each course
+- `name`: Name of the course
+- `category`: Category of the course
+- `description`: Description of the course
+- `active`: Defines whether the course is active or not
+- `created_at`: The date when the course was created
+- `updated_at`: The date when the course was last updated (this should change whenever a course is updated)
 
 ### Routes
 
