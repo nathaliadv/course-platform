@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "ae331eee-d8d6-44c4-a4ba-45d47e3f9c79",
+		"name": "Rocketseat - course platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34733624"
+	},
+	"item": [
+		{
+			"name": "Create course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"The Complete Java Certification Course\",\n    \"category\": \"backend\",\n    \"description\": \"Welcome to Master Practical Java Development.  This course is designed to help you master the most in-demand and critical components for becoming a Core Java developer.\",\n    \"active\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/courses/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courses",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update course",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"The Complete Java Certification Course\",\n    \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/courses/040f8e74-3b14-4d09-87f3-995c749fd0c7",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courses",
+						"040f8e74-3b14-4d09-87f3-995c749fd0c7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Toggle Active",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"active\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/courses/040f8e74-3b14-4d09-87f3-995c749fd0c7/active",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courses",
+						"040f8e74-3b14-4d09-87f3-995c749fd0c7",
+						"active"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get courses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLXNlcnZlciIsImV4cCI6MTcyNzIzNTM1MCwic3ViIjoiMGI5NmQ2ZWUtZWZlYy00YmMwLWI2YTQtZjMwNDU5MWIzZDBmIiwicm9sZXMiOlsiUk9MRV9DQU5ESURBVEUiXX0.Np7pYTfoCjQG_192OWazcS9W4LSVmHAyAkn4jbJULcc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/courses/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courses",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get courses by name",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLXNlcnZlciIsImV4cCI6MTcyNzIzNTM1MCwic3ViIjoiMGI5NmQ2ZWUtZWZlYy00YmMwLWI2YTQtZjMwNDU5MWIzZDBmIiwicm9sZXMiOlsiUk9MRV9DQU5ESURBVEUiXX0.Np7pYTfoCjQG_192OWazcS9W4LSVmHAyAkn4jbJULcc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/courses/all/filter?name=java",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courses",
+						"all",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "java"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get courses by category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLXNlcnZlciIsImV4cCI6MTcyNzIzNTM1MCwic3ViIjoiMGI5NmQ2ZWUtZWZlYy00YmMwLWI2YTQtZjMwNDU5MWIzZDBmIiwicm9sZXMiOlsiUk9MRV9DQU5ESURBVEUiXX0.Np7pYTfoCjQG_192OWazcS9W4LSVmHAyAkn4jbJULcc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/courses/all/filter?category=backend",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courses",
+						"all",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "backend"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get courses by name and category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLXNlcnZlciIsImV4cCI6MTcyNzIzNTM1MCwic3ViIjoiMGI5NmQ2ZWUtZWZlYy00YmMwLWI2YTQtZjMwNDU5MWIzZDBmIiwicm9sZXMiOlsiUk9MRV9DQU5ESURBVEUiXX0.Np7pYTfoCjQG_192OWazcS9W4LSVmHAyAkn4jbJULcc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/courses/all/filter?name=css&category=frontend",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courses",
+						"all",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "css"
+						},
+						{
+							"key": "category",
+							"value": "frontend"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete course by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/courses/862fc9f8-583d-474f-b5c8-ad494851c4c2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courses",
+						"862fc9f8-583d-474f-b5c8-ad494851c4c2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
