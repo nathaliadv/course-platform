@@ -86,6 +86,8 @@ public class PersistenceAdapter implements PersistenceOutboundPort {
 
     @Override
     public void deleteCourse(UUID id) {
+        courseRepository.findById(id)
+                .orElseThrow(() -> new CourseNotFoundException("Course not found with id: " + id));
         courseRepository.deleteById(id);
     }
 }
