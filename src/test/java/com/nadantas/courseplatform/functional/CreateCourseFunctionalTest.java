@@ -1,4 +1,4 @@
-package com.nadantas.courseplatform.functional.createCourse;
+package com.nadantas.courseplatform.functional;
 
 import com.nadantas.courseplatform.adapter.inbound.http.course.dto.request.CreateCourseRequestDTO;
 import com.nadantas.courseplatform.shared.Utils;
@@ -18,8 +18,8 @@ public class CreateCourseFunctionalTest extends AbstractFunctionalTest {
         mvc.perform(
                 MockMvcRequestBuilders.post("/courses/")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(Utils.objectToJSON(createCourseRequestDTO()))
-        ).andExpect(MockMvcResultMatchers.status().isOk())
+                        .content(Utils.objectToJSON(createCourseRequestDTO())))
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(content().string(org.hamcrest.Matchers.containsString("Course registered successfully! Id: ")));
     }
 
