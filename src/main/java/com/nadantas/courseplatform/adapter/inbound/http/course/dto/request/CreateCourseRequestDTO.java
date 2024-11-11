@@ -5,7 +5,11 @@ import com.nadantas.courseplatform.shared.enums.Category;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 @Builder
 public record CreateCourseRequestDTO(
         @NotBlank String name,
