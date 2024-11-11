@@ -1,4 +1,4 @@
-package com.nadantas.courseplatform.functional.createCourse;
+package com.nadantas.courseplatform.functional;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;
