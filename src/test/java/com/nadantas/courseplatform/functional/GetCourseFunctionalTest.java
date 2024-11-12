@@ -32,7 +32,7 @@ public class GetCourseFunctionalTest extends AbstractFunctionalTest {
 
         List<CourseModel> courses = objectMapper.readValue(responseJson, objectMapper.getTypeFactory().constructCollectionType(List.class, CourseModel.class));
 
-        assertEquals(8, courses.size());
+        assertEquals(9, courses.size());
 
         assertEquals(UUID.fromString("fcc3c859-7812-4a2f-bddc-d7f8ebc3e808"), courses.get(0).id());
         assertEquals("The Complete Java Certification Course", courses.get(0).name());
@@ -106,6 +106,6 @@ public class GetCourseFunctionalTest extends AbstractFunctionalTest {
 
         List<CourseModel> courses = objectMapper.readValue(responseJson, objectMapper.getTypeFactory().constructCollectionType(List.class, CourseModel.class));
 
-        assertEquals(8, courses.size());
+        assertEquals(9, courses.size());
     }
 }
