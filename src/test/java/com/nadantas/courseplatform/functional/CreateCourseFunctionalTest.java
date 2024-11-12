@@ -8,21 +8,32 @@ import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.transaction.annotation.Transactional;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-@Transactional
 public class CreateCourseFunctionalTest extends AbstractFunctionalTest {
 
     @Test
-    public void shouldCreateACourse() throws Exception {
-        mvc.perform(
-                MockMvcRequestBuilders.post("/courses/")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(Utils.objectToJSON(createCourseRequestDTO())))
+    public void shouldCreateACourseAndDelete() throws Exception {
+        String responseJson = mvc.perform(
+                        MockMvcRequestBuilders.post("/courses/")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(Utils.objectToJSON(createCourseRequestDTO())))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(content().string(org.hamcrest.Matchers.containsString("Course registered successfully! Id: ")));
+                .andReturn().getResponse().getContentAsString();
+
+        String courseId = extractCourseIdFromResponse(responseJson);
+        assertNotNull(courseId);
+
+         responseJson = mvc.perform(
+                MockMvcRequestBuilders.delete("/courses/" + courseId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        assertEquals(String.format("Course %s deleted successfully!", courseId), responseJson);
+
     }
 
     private CreateCourseRequestDTO createCourseRequestDTO() {
@@ -32,5 +43,13 @@ public class CreateCourseFunctionalTest extends AbstractFunctionalTest {
                 .description("Description Test Course")
                 .active(true)
                 .build();
+    }
+
+    private String extractCourseIdFromResponse(String response) {
+        String prefix = "Course registered successfully! Id: ";
+        if (response.startsWith(prefix)) {
+            return response.substring(prefix.length());
+        }
+        throw new IllegalArgumentException("Response format is unexpected: " + response);
     }
 }
