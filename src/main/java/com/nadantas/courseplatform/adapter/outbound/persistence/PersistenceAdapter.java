@@ -31,7 +31,7 @@ public class PersistenceAdapter implements PersistenceOutboundPort {
             return courseSaved.getId();
         } catch (Exception e) {
             logger.error("Error saving course: {}", courseModel, e);
-            throw new PersistenceException("Failed to save course", e);
+            throw new PersistenceException("Failed to save course. ", e);
         }
     }
 

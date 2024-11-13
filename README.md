@@ -51,7 +51,7 @@ Before we dive into the API routes, let's understand the structure (properties) 
 - **Spring Boot**
 - **Spring Data JPA**
 - **Hibernate**
-- **H2 Database** (In-memory for development)
+- **H2 Database** (In-memory for test)
 - **PostgreSQL** (Running in Docker)
 - **Maven** (Build tool)
 - **JUnit** (Testing framework)
@@ -83,6 +83,17 @@ This command will start all services defined in your docker-compose.yml file, in
 
 
 > You can find examples of requests in the **Rocketseat.postman_collection.json** file included in the project. This file contains a collection of requests for interacting with the API, which can be imported into Postman for testing and exploration.
+
+
+## API Documentation
+This API is documented using **Swagger**. Swagger provides a user-friendly UI to interact with and test the API endpoints, as well as a detailed view of each endpoint's structure, parameters, and possible responses.
+
+Once the application is running, you can access the Swagger documentation at:
+
+`http://localhost:8080/swagger-ui.html` for the Swagger UI (Graphical interface)
+`http://localhost:8080/v3/api-docs for the raw OpenAPI specification in JSON format
+Swagger simplifies exploring and testing the API features directly from your browser, providing real-time feedback on requests and responses.
+
 
 ## Contributing
 Feel free to fork this project, make changes, and create pull requests. All contributions are welcome!
